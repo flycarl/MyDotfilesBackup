@@ -247,7 +247,7 @@ else
 endif
 
 " Paste from clipboard
-map </eader>p "+p
+map <leader>p "+p
 
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
@@ -266,12 +266,10 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " ==========================================================
 au BufRead *.js set makeprg=jslint\ %
 
-" Don't allow snipmate to take over tab
-autocmd VimEnter * ino <c-j> <c-r>=TriggerSnippet()<cr>
 " Use tab to scroll through autocomplete menus
-autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
-autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+"autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
+"autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
+
 let g:acp_completeoptPreview=1
 
 " ===========================================================
@@ -322,4 +320,4 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
 
 "setting python-mode
-let g:pymode_breakpoint_key = '<leader>br'
+let g:pymode_breakpoint = 0
