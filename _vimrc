@@ -241,7 +241,8 @@ if has("gui_running")
 else
     "colorscheme torte
     " feel free to choose :set background=light for a different style
-    "set background=dark
+    "set background=light
+
     colors peaksea
     "colors zenburn
 endif
