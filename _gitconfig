@@ -1,0 +1,10 @@
+[user]
+	name = Jia Deng
+	email = flyucarl@gmail.com
+[github]
+	user = flycarl
+	token = 56c42864d8906f625335032d9481457d
+[help]
+	format = web
+[core]
+	excludesfile = ~/.gitexcludes
