@@ -7,4 +7,4 @@
 [help]
 	format = web
 [core]
-	excludesfile = ~/.gitexcludes
+	excludesfile = ~/.cvsignore
