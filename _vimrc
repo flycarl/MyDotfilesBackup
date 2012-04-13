@@ -267,11 +267,16 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " ==========================================================
 au BufRead *.js set makeprg=jslint\ %
 
+" ==========================================================
+" autocomplete and Snipmate
+" ==========================================================
 " Use tab to scroll through autocomplete menus
 "autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
 "autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
 
 let g:acp_completeoptPreview=1
+"let g:acp_behaviorSnipmateLength=1
+
 
 " ===========================================================
 " FileType specific changes
@@ -319,4 +324,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 "close auto indent for the current file
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
+"set dictionary+=/usr/share/dict/words 
+
 
