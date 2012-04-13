@@ -244,6 +244,7 @@ else
     "set background=light
 
     colors peaksea
+    "colors solarized
     "colors zenburn
 endif
 
