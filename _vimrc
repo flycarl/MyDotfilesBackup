@@ -77,7 +77,7 @@ cmap W! w !sudo tee % >/dev/null
 map <leader>td <Plug>TaskList
 
 " Run pep8
-"let g:pep8_map='<leader>8'
+let g:pep8_map='<leader>8'
 
 " run py.test's
 nmap <silent><Leader>tf <Esc>:Pytest file<CR>
@@ -239,7 +239,7 @@ if has("gui_running")
     " Remove toolbar
     set guioptions-=T
 else
-    "colorscheme torte
+    "colors torte
     " feel free to choose :set background=light for a different style
     "set background=dark
     colors peaksea
@@ -285,7 +285,7 @@ au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
-"let g:pyflakes_use_quickfix = 0
+let g:pyflakes_use_quickfix = 0
 
 
 
@@ -319,5 +319,3 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 "close auto indent for the current file
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
 
-"setting python-mode
-let g:pymode_breakpoint = 0

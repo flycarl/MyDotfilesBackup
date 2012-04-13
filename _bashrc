@@ -149,4 +149,4 @@ else
     fi
 fi
 
-
+alias vi='vim'
