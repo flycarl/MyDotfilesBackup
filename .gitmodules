@@ -1,0 +1,3 @@
+[submodule "git-sync"]
+	path = git-sync
+	url = https://github.com/ianb/git-sync.git
