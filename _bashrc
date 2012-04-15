@@ -159,3 +159,5 @@ if [ `id -u` != '0' ]; then
   export PIP_RESPECT_VIRTUALENV=true
 fi
 
+#ack alias
+alias ack='ack-grep'
