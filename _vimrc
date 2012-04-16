@@ -325,7 +325,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 "close auto indent for the current file
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
-"set dictionary+=/usr/share/dict/words 
+set dictionary+=/usr/share/dict/words 
 
 "Execute file being edit with <Shift> + e:
 map <buffer> <S-e> :w<CR>:!python % <CR>
