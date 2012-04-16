@@ -293,6 +293,11 @@ au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smart
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
+if has("gui_running")
+    highlight SpellBad term=underline gui=undercurl guisp=Orange
+else
+    highlight SpellBad term=underline cterm=underline ctermbg=0 gui=underline
+endif
 
 
 
