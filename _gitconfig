@@ -8,3 +8,6 @@
 	format = web
 [core]
 	excludesfile = ~/.cvsignore
+[alias]
+    co = checkout
+    br = branch
