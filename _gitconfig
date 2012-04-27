@@ -14,3 +14,4 @@
 [color]
     ui = auto
     paper = less -R
+	status = true
