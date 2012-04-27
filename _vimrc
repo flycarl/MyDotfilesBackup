@@ -373,3 +373,8 @@ set dictionary+=/usr/share/dict/words
 
 "Execute file being edit with <Shift> + e:
 map <buffer> <S-e> :w<CR>:!python % <CR>
+
+"tagbar 
+let g:tagbar_usearrows = 1
+nnoremap <leader>tb :TagbarToggle<CR>
+
