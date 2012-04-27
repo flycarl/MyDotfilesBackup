@@ -121,11 +121,42 @@ nmap <leader>a <Esc>:Ack!
 " Load the Gundo window
 map <leader>gd :GundoToggle<CR>
 
-" Jump to the definition of whatever the cursor is on
-map <leader>j :RopeGotoDefinition<CR>
+" ==========================================================
+" Rope autocomplete
+" ==========================================================
+let $PYTHONPATH .= ":/home/dj/Downloads/rope/rope:/home/dj/Downloads/rope/ropevim"
+source /home/dj/Downloads/rope/ropevim/ropevim.vim
+let ropevim_codeassist_maxfixes=10
+let ropevim_guess_project=1
+let ropevim_vim_completion=1
+let ropevim_enable_autoimport=1
+let ropevim_extended_complete=1
+let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*", "xml.etree", "boto.*"]
+imap <C-/> <C-R>=RopeCodeAssistInsertMode()<CR>
 
-" Rename whatever the cursor is on (including references to it)
-map <leader>rn :RopeRename<CR>
+function! CustomCodeAssistInsertMode()
+    call RopeCodeAssistInsertMode()
+    if pumvisible()
+        return "\<C-L>\<Down>"
+    else
+        return ''
+    endif
+endfunction
+ 
+function! TabWrapperComplete()
+    let cursyn = synID(line('.'), col('.') - 1, 1)
+    if pumvisible()
+        return "\<C-Y>"
+    endif
+    if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$' || cursyn != 0
+        return "\<Tab>"
+    else
+        return "\<C-R>=CustomCodeAssistInsertMode()\<CR>"
+    endif
+endfunction
+ 
+"inoremap <buffer><silent><expr> <Tab> TabWrapperComplete()
+
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -338,4 +369,3 @@ map <buffer> <S-e> :w<CR>:!python % <CR>
 "tagbar 
 let g:tagbar_usearrows = 1
 nnoremap <leader>tb :TagbarToggle<CR>
-
