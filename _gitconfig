@@ -11,3 +11,6 @@
 [alias]
     co = checkout
     br = branch
+[color]
+    ui = auto
+    paper = less -R

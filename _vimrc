@@ -151,7 +151,7 @@ function! TabWrapperComplete()
     endif
 endfunction
  
-inoremap <buffer><silent><expr> <Tab> TabWrapperComplete(
+"inoremap <buffer><silent><expr> <Tab> TabWrapperComplete(
 " Jump to the definition of whatever the cursor is on
 map <leader>j :RopeGotoDefinition<CR>
 
