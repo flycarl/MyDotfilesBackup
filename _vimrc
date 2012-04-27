@@ -155,7 +155,6 @@ function! TabWrapperComplete()
     endif
 endfunction
  
-"inoremap <buffer><silent><expr> <Tab> TabWrapperComplete()
 
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
@@ -274,9 +273,15 @@ else
     " feel free to choose :set background=light for a different style
     "set background=light
 
-    colors peaksea
-    "colors solarized
+    "let g:solarized_termtrans=1
+    "let g:solarized_termcolors=16
+    "let g:solarized_contrast="high"
+    "let g:solarized_visibility="high"
+    "colors peaksea
+    colors solarized
     "colors zenburn
+
+
 endif
 
 " Paste from clipboard
