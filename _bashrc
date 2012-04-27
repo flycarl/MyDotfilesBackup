@@ -161,3 +161,6 @@ fi
 
 #ack alias
 alias ack='ack-grep'
+
+export TERM=xterm-256color
+

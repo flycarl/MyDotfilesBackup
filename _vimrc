@@ -121,11 +121,44 @@ nmap <leader>a <Esc>:Ack!
 " Load the Gundo window
 map <leader>gd :GundoToggle<CR>
 
+" ==========================================================
+" configure rope
+" ==========================================================
+let ropevim_codeassist_maxfixes=10
+let ropevim_guess_project=1
+let ropevim_vim_completion=1
+let ropevim_enable_autoimport=1
+let ropevim_extended_complete=1
+ 
+function! CustomCodeAssistInsertMode()
+    call RopeCodeAssistInsertMode()
+    if pumvisible()
+        return "\<C-L>\<Down>"
+    else
+        return ''
+    endif
+endfunction
+ 
+function! TabWrapperComplete()
+    let cursyn = synID(line('.'), col('.') - 1, 1)
+    if pumvisible()
+        return "\<C-Y>"
+    endif
+    if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$' || cursyn != 0
+        return "\<Tab>"
+    else
+        return "\<C-R>=CustomCodeAssistInsertMode()\<CR>"
+    endif
+endfunction
+ 
+inoremap <buffer><silent><expr> <Tab> TabWrapperComplete(
 " Jump to the definition of whatever the cursor is on
 map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
 map <leader>rn :RopeRename<CR>
+
+
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -243,9 +276,15 @@ else
     " feel free to choose :set background=light for a different style
     "set background=light
 
-    colors peaksea
-    "colors solarized
+    "let g:solarized_termtrans=1
+    "let g:solarized_termcolors=16
+    "let g:solarized_contrast="high"
+    "let g:solarized_visibility="high"
+    "colors peaksea
+    colors solarized
     "colors zenburn
+
+
 endif
 
 " Paste from clipboard
