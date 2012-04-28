@@ -160,6 +160,7 @@ if [ `id -u` != '0' ]; then
 fi
 
 #ack alias
+# sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 alias ack='ack-grep'
 
 export TERM=xterm-256color
