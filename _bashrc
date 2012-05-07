@@ -165,3 +165,5 @@ alias ack='ack-grep'
 
 export TERM=xterm-256color
 
+#jianbing.org on DNS
+function j() { dig $1.jianbing.org txt +short | perl -pe's/\\(\d{1,3})/chr $1/eg; s/"//g'; }
