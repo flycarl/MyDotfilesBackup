@@ -115,6 +115,7 @@ map <leader>nt :NERDTreeToggle<CR>
 
 " Run command-t file search
 map <leader>f :CommandT<CR>
+"let g:CommandTAcceptSelectionTabMap='<C-|>'
 " Ack searching
 nmap <leader>a <Esc>:Ack!
 
@@ -133,6 +134,9 @@ let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*", "xml.etree"
 
 imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
 imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
+
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>rn :RopeRename<CR>
 
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
@@ -352,3 +356,6 @@ map <buffer> <S-e> :w<CR>:!python % <CR>
 "tagbar 
 let g:tagbar_usearrows = 1
 nnoremap <leader>tb :TagbarToggle<CR>
+
+"alow mouse to drag split window line
+se mouse=a
