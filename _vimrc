@@ -352,3 +352,6 @@ map <buffer> <S-e> :w<CR>:!python % <CR>
 "tagbar 
 let g:tagbar_usearrows = 1
 nnoremap <leader>tb :TagbarToggle<CR>
+
+"adjust buffer split with mouse
+set mouse=a
