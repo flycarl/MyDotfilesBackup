@@ -357,5 +357,14 @@ map <buffer> <S-e> :w<CR>:!python % <CR>
 let g:tagbar_usearrows = 1
 nnoremap <leader>tb :TagbarToggle<CR>
 
-"alow mouse to drag split window line
+"allow mouse to drag split window line
 se mouse=a
+
+"shut down the delimit by default
+nnoremap <leader>ds :DelimitMateSwitch<CR>                                        
+
+"open close tag only for html/xml
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+set cmdheight=2
