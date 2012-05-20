@@ -125,12 +125,13 @@ map <leader>gd :GundoToggle<CR>
 " ==========================================================
 " Rope autocomplete
 " ==========================================================
+source /home/dj/Downloads/rope.vim
 let ropevim_codeassist_maxfixes=10
 let ropevim_guess_project=1
 let ropevim_vim_completion=1
 let ropevim_enable_autoimport=1
 let ropevim_extended_complete=1
-let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree", "boto.*"]
+let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
 
 imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
 imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
@@ -336,7 +337,7 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
 
-"set colorcolumn=79
+set colorcolumn=79
 
 
 "Fast reloading of the .vimrc
