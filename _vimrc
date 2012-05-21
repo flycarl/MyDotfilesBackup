@@ -1,4 +1,4 @@
-" https://github.com/sontek/dotfiles/
+" modify from https://github.com/sontek/dotfiles/
 " ==========================================================
 " Dependencies - Libraries/Applications outside of vim
 " ==========================================================
@@ -122,22 +122,42 @@ nmap <leader>a <Esc>:Ack!
 " Load the Gundo window
 map <leader>gd :GundoToggle<CR>
 
-" ==========================================================
-" Rope autocomplete
-" ==========================================================
-source /home/dj/Downloads/rope.vim
-let ropevim_codeassist_maxfixes=10
-let ropevim_guess_project=1
-let ropevim_vim_completion=1
-let ropevim_enable_autoimport=1
-let ropevim_extended_complete=1
-let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
 
-imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
-imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
+" Paste from clipboard
+map <leader>p "+p
 
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>rn :RopeRename<CR>
+" Quit window on <leader>q
+nnoremap <leader>q :q<CR>
+"
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+
+" Remove trailing whitespace on <leader>S
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Select the item in the list with enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+"Fast reloading of the .vimrc
+map <silent> <leader>ss :source ~/.vimrc<cr>
+"Fast editing of .vimrc
+map <silent> <leader>ee :e ~/.vimrc<cr>
+"When .vimrc is edited, reload it
+autocmd! bufwritepost .vimrc source ~/.vimrc 
+
+"close auto indent for the current file
+:nnoremap <F8> :setl noai nocin nosi inde=<CR>
+
+"Execute file being edit with <Shift> + e:
+map <buffer> <S-e> :w<CR>:!python % <CR>
+
+"tagbar 
+let g:tagbar_usearrows = 1
+nnoremap <leader>tb :TagbarToggle<CR>
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
 
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
@@ -172,9 +192,6 @@ set wildignore+=*.egg-info/**
 set grepprg=ack         " replace the default grep program with ack
 
 
-" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
-
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 "autocmd FileType * setlocal colorcolumn=0
@@ -183,6 +200,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 " don't select first item, follow typing in autocomplete
 set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
+set dictionary+=/usr/share/dict/words " add dictionary to completion 
 
 
 """ Moving Around/Editing
@@ -205,6 +223,9 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
+set mouse=a                 " allow mouse to drag split window line
+set cmdheight=2             " to avoid hit-enter prompt
+set colorcolumn=79          " column line at 79, some colorscheme not good
 
 " don't outdent hashes
 inoremap # #
@@ -263,25 +284,7 @@ else
     "colors peaksea
     colors solarized
     "colors zenburn
-
-
 endif
-
-" Paste from clipboard
-map <leader>p "+p
-
-" Quit window on <leader>q
-nnoremap <leader>q :q<CR>
-"
-" hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
-
-" Remove trailing whitespace on <leader>S
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " ==========================================================
 " Javascript
 " ==========================================================
@@ -298,12 +301,35 @@ let g:acp_completeoptPreview=1
 "let g:acp_behaviorSnipmateLength=1
 
 
+" ==========================================================
+" Rope autocomplete
+" ==========================================================
+source /home/dj/Downloads/rope.vim
+let ropevim_codeassist_maxfixes=10
+let ropevim_guess_project=1
+let ropevim_vim_completion=1
+let ropevim_enable_autoimport=1
+let ropevim_extended_complete=1
+let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
+
+imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
+imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
+
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>rn :RopeRename<CR>
+map <leader>ac :RopeAutoImport<CR>
+
+
 " ===========================================================
 " FileType specific changes
 " ============================================================
 " Mako/HTML
 autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+"open close tag only for html/xml
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Python
 "au BufRead *.py compiler nose
@@ -318,9 +344,12 @@ else
     highlight SpellBad term=underline cterm=underline ctermbg=0 gui=underline
 endif
 
+"autocmd FileType python set ft=python.django " For SnipMate
+"autocmd FileType html set ft=htmldjango.html " For SnipMate
 
-
+" ========================================================
 " Add the virtualenv's site-packages to vim path
+" ========================================================
 py << EOF
 import os.path
 import sys
@@ -337,32 +366,4 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
 
-set colorcolumn=79
 
-
-"Fast reloading of the .vimrc
-map <silent> <leader>ss :source ~/.vimrc<cr>
-"Fast editing of .vimrc
-map <silent> <leader>ee :e ~/.vimrc<cr>
-"When .vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc 
-
-"close auto indent for the current file
-:nnoremap <F8> :setl noai nocin nosi inde=<CR>
-set dictionary+=/usr/share/dict/words 
-
-"Execute file being edit with <Shift> + e:
-map <buffer> <S-e> :w<CR>:!python % <CR>
-
-"tagbar 
-let g:tagbar_usearrows = 1
-nnoremap <leader>tb :TagbarToggle<CR>
-
-"allow mouse to drag split window line
-se mouse=a
-
-"open close tag only for html/xml
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
-
-set cmdheight=2
