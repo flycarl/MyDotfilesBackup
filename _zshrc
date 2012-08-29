@@ -13,6 +13,7 @@ ZSH_THEME="random"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ppxy="python ~/goagent/local/proxy.py"
 alias installxiaomi="cd $ANDROID_SDK_ROOT/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
+alias updateCS="cscope -Rbkq"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
