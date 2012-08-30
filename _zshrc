@@ -39,10 +39,10 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/dj/android-sdk-linux/platform-tools:/home/dj/Downloads/android-ndk-r8b:/home/dj/bin
-ANDROID_SDK_ROOT=/home/dj/android-sdk-linux
-ANDROID_NDK_ROOT=/home/dj/Downloads/android-ndk-r8b
-MMOCLIENT=/home/dj/MMOClient/trunk/Client
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/android-sdk-linux/platform-tools:$HOME/Downloads/android-ndk-r8b:$HOME/bin
+ANDROID_SDK_ROOT=$HOME/android-sdk-linux
+ANDROID_NDK_ROOT=$HOME/Downloads/android-ndk-r8b
+MMOCLIENT=$HOME/MMOClient/trunk/Client
 
 #auto launching ssh-agent on msysgit
 SSH_ENV="$HOME/.ssh/environment"
