@@ -5,14 +5,16 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+ZSH_THEME="af-magic"
 # "robbyrussell"
+# "af-magic"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias conzsh="vi ~/.zshrc"
+alias rezsh="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ppxy="python ~/goagent/local/proxy.py"
-alias installxiaomi="cd $ANDROID_SDK_ROOT/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
+alias inxiaomi="cd $ANDROID_SDK_ROOT/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
 alias updateCS="cscope -Rbkq"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -31,16 +33,22 @@ alias updateCS="cscope -Rbkq"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
+# Example format: plugins=(rails git textmate ruby lighthouse) plugins=(git) 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/niko/android-sdk-linux/platform-tools:/home/niko/Downloads/android-ndk-r8b
-ANDROID_SDK_ROOT=/home/niko/android-sdk-linux
-ANDROID_NDK_ROOT=/home/niko/Downloads/android-ndk-r8b
-MMOCLIENT=/home/niko/MMOClient/trunk/Client
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/niko/android-sdk-linux/platform-tools:/home/niko/Downloads/android-ndk-r8b:/home/niko/bin
+export ANDROID_SDK_ROOT=/home/niko/android-sdk-linux
+export ANDROID_HOME=/home/niko/android-sdk-linux
+export ANDROID_NDK_ROOT=/home/niko/Downloads/android-ndk-r8b
+export MMOCLIENT=/home/niko/MMOClient/trunk/Client
+export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_34  
+export JRE_HOME=/usr/lib/jvm/jdk1.6.0_34/jre  
+export ANT_HOME=/home/niko/Downloads/apache-ant-1.8.4
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH    
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$PATH  
+
+
 
 #auto launching ssh-agent on msysgit
 SSH_ENV="$HOME/.ssh/environment"
