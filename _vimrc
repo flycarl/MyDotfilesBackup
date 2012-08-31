@@ -304,7 +304,7 @@ let g:acp_completeoptPreview=1
 " ==========================================================
 " Rope autocomplete
 " ==========================================================
-source /home/niko/Downloads/rope.vim
+source $HOME/Downloads/rope.vim
 let ropevim_codeassist_maxfixes=10
 let ropevim_guess_project=1
 let ropevim_vim_completion=1

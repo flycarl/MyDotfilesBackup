@@ -33,18 +33,20 @@ alias updateCS="cscope -Rbkq"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse) plugins=(git) 
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/niko/android-sdk-linux/platform-tools:/home/niko/Downloads/android-ndk-r8b:/home/niko/bin
-export ANDROID_SDK_ROOT=/home/niko/android-sdk-linux
-export ANDROID_HOME=/home/niko/android-sdk-linux
-export ANDROID_NDK_ROOT=/home/niko/Downloads/android-ndk-r8b
-export MMOCLIENT=/home/niko/MMOClient/trunk/Client
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/android-sdk-linux/platform-tools:$HOME/Downloads/android-ndk-r8b:$HOME/bin
+export ANDROID_SDK_ROOT=$HOME/android-sdk-linux
+export ANDROID_HOME=$HOME/android-sdk-linux
+export ANDROID_NDK_ROOT=$HOME/Downloads/android-ndk-r8b
+export MMOCLIENT=$HOME/MMOClient/trunk/Client
 export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_34  
 export JRE_HOME=/usr/lib/jvm/jdk1.6.0_34/jre  
-export ANT_HOME=/home/niko/Downloads/apache-ant-1.8.4
+export ANT_HOME=$HOME/Downloads/apache-ant-1.8.4
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH    
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$PATH  
 
