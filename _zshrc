@@ -16,6 +16,8 @@ alias rezsh="source ~/.zshrc"
 alias ppxy="python ~/goagent/local/proxy.py"
 alias inxiaomi="cd $ANDROID_SDK_ROOT/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
 alias updateCS="cscope -Rbkq"
+alias addTrace="python ~/MyDotfilesBackup/AddTrace.py -b"
+alias removeTrace="python ~/MyDotfilesBackup/AddTrace.py -r"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
