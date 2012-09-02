@@ -405,3 +405,8 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+
+
+" ctags:
+"set tags=/home/dj/someproject/tags;
+    
