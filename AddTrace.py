@@ -3,7 +3,7 @@ import os, re, sys, stat, getopt, fnmatch
 from optparse import OptionParser
 
 addcode = " //DIGIADEBUG"
-headerRDebug = addcode + "\n"  # "#include <e32debug.h>"+addcode+"\n"
+headerRDebug = "" #addcode + "\n"  # "#include <e32debug.h>"+addcode+"\n"
 headerRFLogger = "#include <flogger.h>"+addcode+"\n"
 
 # add line patterns of note here!
@@ -93,7 +93,7 @@ def check_trc():
         trc_com = "RFileLogger::Write( _L(\""+logDir+"\"), _L(\""+logFile+"\"), EFileLoggingModeAppend, _L(\"%s\") );" + addcode
         header = headerRFLogger
     else:
-        trc_com = 'cocos2d::CCLog("[DIGIADEBUG] %s");' + addcode
+        trc_com = 'cocos2d::CCLog("hao123Trace %s");' + addcode
         header = headerRDebug
     return trc_com,header
 
@@ -150,8 +150,8 @@ def AddTraces( fileName ):
                         i1=i1-1
                     if check_meth_name(lines[i1]):      # if we found a valid methodname
                         result += ' ' * brPos + dbg_cmd('> ' + lines[i1], fileName,lnum )
-                    else:                               #if not, just print something
-                        result += ' ' * brPos + dbg_cmd('> ' + traceLine, fileName,lnum )
+                    #else:                               #if not, just print something
+                     #   result += ' ' * brPos + dbg_cmd('> ' + traceLine, fileName,lnum )
 
         else:
             brPos = line.find( 'break;' )
