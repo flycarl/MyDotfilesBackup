@@ -290,6 +290,10 @@ endif
 " ==========================================================
 au BufRead *.js set makeprg=jslint\ %
 
+" cmake filetype
+" ==========================================================
+au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+
 " ==========================================================
 " autocomplete and Snipmate
 " ==========================================================
