@@ -1,57 +1,66 @@
-" modify from https://github.com/sontek/dotfiles/
-" ==========================================================
-" Dependencies - Libraries/Applications outside of vim
-" ==========================================================
-" Pep8 - http://pypi.python.org/pypi/pep8
-" Pyflakes
-" Ack
-" Rake & Ruby for command-t
-" nose, django-nose
-
-" ==========================================================
-" Plugins included
-" ==========================================================
-" Pathogen
-"     Better Management of VIM plugins
-"
-" GunDo
-"     Visual Undo in vim with diff's to check the differences
-"
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path
-"
-" Snipmate
-"     Configurable snippets to avoid re-typing common comands
-"
-" PyFlakes
-"     Underlines and displays errors with Python on-the-fly
-"
-" Fugitive
-"    Interface with git from vim
-"
-" Git
-"    Syntax highlighting for git config files
-"
-" Pydoc
-"    Opens up pydoc within vim
-"
-" Surround
-"    Allows you to surround text with open/close tags
-"
-" Py.test
-"    Run py.test test's from within vim
-"
-" MakeGreen
-"    Generic test runner that works with nose
-"
-" ==========================================================
-" Shortcuts
-" ==========================================================
+"==========================================================
+"                   preamble
+"==========================================================
 set nocompatible              " Don't be compatible with vi
 let mapleader=","             " change the leader to be a comma vs slash
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" requeired!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'anyakichi/vim-surround'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'mileszs/ack.vim'
+Bundle 'reinh/vim-makegreen'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
+
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'fs111/pydoc.vim'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'xolox/vim-pyref'
+
+
+Bundle 'garbas/vim-snipmate'
+Bundle 'snipmate-snippets'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rails'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'pep8'
+
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 
 " Seriously, guys. It's not like :W is bound to anything anyway. add aword
 command! W :w
@@ -160,14 +169,6 @@ nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 " ==========================================================
-" Pathogen - Allows us to organize our vim plugins
-" ==========================================================
-" Load pathogen with docs for all plugins
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-" ==========================================================
 " Basic Settings
 " ==========================================================
 syntax on                     " syntax highlighing
@@ -266,7 +267,7 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme desert
+    colorscheme solarized
     " Remove menu bar
     set guioptions-=m
 
@@ -308,20 +309,20 @@ let g:acp_completeoptPreview=1
 " ==========================================================
 " Rope autocomplete
 " ==========================================================
-source $HOME/Downloads/rope.vim
-let ropevim_codeassist_maxfixes=10
-let ropevim_guess_project=1
-let ropevim_vim_completion=1
-let ropevim_enable_autoimport=1
-let ropevim_extended_complete=1
-let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
-
-imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
-imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
-
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>rn :RopeRename<CR>
-map <leader>ac :RopeAutoImport<CR>
+"source $HOME/Downloads/rope.vim
+"let ropevim_codeassist_maxfixes=10
+"let ropevim_guess_project=1
+"let ropevim_vim_completion=1
+"let ropevim_enable_autoimport=1
+"let ropevim_extended_complete=1
+"let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
+"
+"imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
+"imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
+"
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>rn :RopeRename<CR>
+"map <leader>ac :RopeAutoImport<CR>
 
 
 " ===========================================================
