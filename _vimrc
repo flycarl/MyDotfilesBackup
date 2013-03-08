@@ -31,6 +31,7 @@ Bundle 'fs111/pydoc.vim'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'xolox/vim-pyref'
 
+Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'garbas/vim-snipmate'
 Bundle 'snipmate-snippets'
@@ -45,7 +46,7 @@ Bundle 'tpope/vim-rails'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'pep8'
+"Bundle 'pep8'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
