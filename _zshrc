@@ -14,7 +14,7 @@ alias conzsh="vi ~/.zshrc"
 alias rezsh="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ppxy="python ~/goagent/local/proxy.py"
-alias inxiaomi="cd $ANDROID_SDK_ROOT/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
+alias inxiaomi="cd $HOME/adt-bundle-linux-x86/sdk/platform-tools&&sudo ./adb kill-server&&sudo ./adb devices"
 alias updateCS="cscope -Rbkq"
 alias addTrace="python ~/MyDotfilesBackup/AddTrace.py -b"
 alias removeTrace="python ~/MyDotfilesBackup/AddTrace.py -r"
@@ -42,15 +42,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/android-sdk-linux/platform-tools:$HOME/Downloads/android-ndk-r8b:$HOME/bin
-export ANDROID_SDK_ROOT=$HOME/android-sdk-linux
-export ANDROID_HOME=$HOME/android-sdk-linux
-export ANDROID_NDK_ROOT=$HOME/Downloads/android-ndk-r8b
-export MMOCLIENT=$HOME/MMOClient/trunk/Client
-export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_34  
-export JRE_HOME=/usr/lib/jvm/jdk1.6.0_34/jre  
+export ANDROID_SDK_ROOT=$HOME/adt-bundle-linux-x86/sdk
+export ANDROID_HOME=$HOME/adt-bundle-linux-x86/sdk
+export ANDROID_NDK_ROOT=$HOME/android-ndk-r8e
+export MMOCLIENT=$HOME/Client_1
+export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_41  
+export JRE_HOME=/usr/lib/jvm/jdk1.6.0_41/jre  
 export ANT_HOME=$HOME/Downloads/apache-ant-1.8.4
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH    
-export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$PATH  
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_ROOT:$PATH  
 
 
 

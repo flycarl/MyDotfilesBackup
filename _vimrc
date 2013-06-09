@@ -33,8 +33,9 @@ Bundle 'xolox/vim-pyref'
 
 Bundle 'Valloric/YouCompleteMe'
 
-Bundle 'garbas/vim-snipmate'
-Bundle 'snipmate-snippets'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+" Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tomtom/tlib_vim'
@@ -98,7 +99,7 @@ nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
 " Run django tests
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+map <leader>jt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -303,7 +304,9 @@ au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 "autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
 "autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
 
-let g:acp_completeoptPreview=1
+let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
+"let g:acp_completeoptPreview=1
 "let g:acp_behaviorSnipmateLength=1
 
 
