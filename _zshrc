@@ -41,7 +41,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/android-sdk-linux/platform-tools:$HOME/Downloads/android-ndk-r8b:$HOME/bin
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/android-sdk-linux/platform-tools:$HOME/Downloads/android-ndk-r8b:$HOME/bin:/usr/local/git/bin
 export ANDROID_SDK_ROOT=$HOME/adt-bundle-linux-x86/sdk
 export ANDROID_HOME=$HOME/adt-bundle-linux-x86/sdk
 export ANDROID_NDK_ROOT=$HOME/android-ndk-r8e
@@ -51,7 +51,6 @@ export JRE_HOME=/usr/lib/jvm/jdk1.6.0_41/jre
 export ANT_HOME=$HOME/Downloads/apache-ant-1.8.4
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH    
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_ROOT:$PATH  
-
 
 
 # vi alias
@@ -77,4 +76,4 @@ function j() { dig $1.jianbing.org txt +short | perl -pe's/\\(\d{1,3})/chr $1/eg
 #cd
 #wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
 #mv dircolors.ansi-dark .dircolors
-#$eval `dircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`

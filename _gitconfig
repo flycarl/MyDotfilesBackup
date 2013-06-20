@@ -16,5 +16,3 @@
     ui = auto
     paper = less -R
 	status = true
-[push]
-	default = simple
