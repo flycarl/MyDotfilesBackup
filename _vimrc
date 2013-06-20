@@ -31,7 +31,7 @@ Bundle 'fs111/pydoc.vim'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'xolox/vim-pyref'
 
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
