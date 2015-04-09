@@ -6,12 +6,12 @@ let mapleader=","             " change the leader to be a comma vs slash
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle.vim/
+call vundle#begin()
 
 " let Vundle manage Vundle
 " requeired!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle.vim'
 
 " My Bundles here:
 "
@@ -25,14 +25,8 @@ Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
-
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'fs111/pydoc.vim'
 Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'xolox/vim-pyref'
-
 "Bundle 'Valloric/YouCompleteMe'
-
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 " Bundle 'garbas/vim-snipmate'
@@ -50,9 +44,9 @@ Bundle 'FuzzyFinder'
 "Bundle 'pep8'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 " ...
-
+call vundle#end()
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -174,7 +168,6 @@ nnoremap <leader>. :lcd %:p:h<CR>
 " Basic Settings
 " ==========================================================
 syntax on                     " syntax highlighing
-filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
