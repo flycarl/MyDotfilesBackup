@@ -6,12 +6,12 @@ let mapleader=","             " change the leader to be a comma vs slash
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle.vim/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " let Vundle manage Vundle
 " requeired!
-Plugin 'gmarik/vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
 "
