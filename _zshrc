@@ -55,7 +55,7 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$JAVA_HOME:$ANT_HOME/bin:$ANDROID_HOME/
 
 # vi alias
 alias vi='vim'
-
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 #if [ `id -u` != '0' ]; then
 #  export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
 #  export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
