@@ -6,12 +6,12 @@ let mapleader=","             " change the leader to be a comma vs slash
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " requeired!
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " My Bundles here:
 "
@@ -29,13 +29,19 @@ Bundle 'sjl/gundo.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'fs111/pydoc.vim'
 Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'xolox/vim-pyref'
 
 Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-" Bundle 'garbas/vim-snipmate'
+" " Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tomtom/tlib_vim'
@@ -47,12 +53,8 @@ Bundle 'tpope/vim-rails'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-"Bundle 'pep8'
 
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-" ...
-
+call vundle#end()
 filetype plugin indent on     " required!
 "
 " Brief help
