@@ -11,48 +11,41 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " requeired!
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'anyakichi/vim-surround'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'mileszs/ack.vim'
-Bundle 'reinh/vim-makegreen'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
-
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'fs111/pydoc.vim'
-Bundle 'mitechie/pyflakes-pathogen'
-
-Bundle 'Valloric/YouCompleteMe'
-
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-" " Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
+Plugin 'anyakichi/vim-surround'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mileszs/ack.vim'
+Plugin 'reinh/vim-makegreen'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'mitechie/pyflakes-pathogen'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets' 
+" " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rails'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -176,7 +169,6 @@ nnoremap <leader>. :lcd %:p:h<CR>
 " Basic Settings
 " ==========================================================
 syntax on                     " syntax highlighing
-filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
