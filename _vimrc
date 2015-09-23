@@ -34,7 +34,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
+"all lanugage support
+Plugin 'sheerun/vim-polyglot'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tomtom/tlib_vim'
@@ -271,15 +272,9 @@ if has("gui_running")
     set guioptions-=T
 else
     "colors torte
-    " feel free to choose :set background=light for a different style
     "set background=light
-
-    "let g:solarized_termtrans=1
-    "let g:solarized_termcolors=16
-    "let g:solarized_contrast="high"
-    "let g:solarized_visibility="high"
     "colors peaksea
-    colors solarized
+    colorscheme solarized
     "colors zenburn
 endif
 " ==========================================================
@@ -302,25 +297,6 @@ let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
 "let g:acp_completeoptPreview=1
 "let g:acp_behaviorSnipmateLength=1
-
-
-" ==========================================================
-" Rope autocomplete
-" ==========================================================
-"source $HOME/Downloads/rope.vim
-"let ropevim_codeassist_maxfixes=10
-"let ropevim_guess_project=1
-"let ropevim_vim_completion=1
-"let ropevim_enable_autoimport=1
-"let ropevim_extended_complete=1
-"let g:ropevim_autoimport_modules = ["os.*", "traceback", "django.*","web.*", "xml.etree"]
-"
-"imap <C-space> <C-R>=RopeCodeAssistInsertMode()<CR>
-"imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
-"
-"map <leader>j :RopeGotoDefinition<CR>
-"map <leader>rn :RopeRename<CR>
-"map <leader>ac :RopeAutoImport<CR>
 
 
 " ===========================================================
