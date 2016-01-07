@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " My Bundles here:
 "
 " original repos on github
-Plugin 'anyakichi/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'altercation/vim-colors-solarized'
@@ -29,12 +29,15 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "all lanugage support
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+
 Plugin 'sheerun/vim-polyglot'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tcomment_vim'
@@ -44,6 +47,12 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fireplace'
 " vim-scripts repos
 Plugin 'L9'
 Plugin 'FuzzyFinder'
@@ -299,89 +308,3 @@ let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
 "let g:acp_behaviorSnipmateLength=1
 
 
-" ===========================================================
-" FileType specific changes
-" ============================================================
-" Mako/HTML
-autocmd BufNewFile,BufRead *.mako,*.mak,*.jinja2 setlocal ft=html
-autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-
-" Python
-"au BufRead *.py compiler nose
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" Don't let pyflakes use the quickfix window
-let g:pyflakes_use_quickfix = 0
-if has("gui_running")
-    highlight SpellBad term=underline gui=undercurl guisp=Orange
-else
-    highlight SpellBad term=underline cterm=underline ctermbg=0 gui=underline
-endif
-
-"autocmd FileType python set ft=python.django " For SnipMate
-"autocmd FileType html set ft=htmldjango.html " For SnipMate
-
-" ========================================================
-" Add the virtualenv's site-packages to vim path
-" ========================================================
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" Load up virtualenv's vimrc if it exists
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cscope Setting 
-" http://cscope.sourceforge.net/cscope_maps.vim
-" Jason Duell       jduell@alumni.princeton.edu
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope") 
-    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-    set cscopetag
-    " check cscope for definition of a symbol before checking ctags: set to 1
-    " if you want the reverse search order.
-    set csto=0
-    " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out  
-    " else add the database pointed to by environment variable 
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-
-    " show msg when any other cscope db added
-    set cscopeverbose  
-    "   's'   symbol: find all references to the token under cursor
-    "   'g'   global: find global definition(s) of the token under cursor
-    "   'c'   calls:  find all calls to the function name under cursor
-    "   't'   text:   find all instances of the text under cursor
-    "   'e'   egrep:  egrep search for the word under cursor
-    "   'f'   file:   open the filename under cursor
-    "   'i'   includes: find files that include the filename under cursor
-    "   'd'   called: find functions that function under cursor calls
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-endif
-
-
-" ctags:
-"set tags=/home/dj/someproject/tags;
-    
