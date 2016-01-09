@@ -154,6 +154,7 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+inoremap <C-l> <C-O>a
 
 "Fast reloading of the .vimrc
 map <silent> <leader>ss :source ~/.vimrc<cr>
