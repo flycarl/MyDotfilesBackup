@@ -120,3 +120,23 @@ export TERM=xterm-256color
 
 #jianbing.org on DNS
 function j() { dig $1.jianbing.org txt +short | perl -pe's/\\(\d{1,3})/chr $1/eg; s/"//g'; }
+
+# AgentWho config for shell
+
+function start-agentwho() {
+	export http_proxy="h2.agent02.net:56719"
+	export https_proxy="h2.agent02.net:56719"
+	echo "http proxy started..."
+}
+
+function stop-agentwho() {
+	export http_proxy=""
+	export https_proxy=""
+	echo "http proxy stopped..."
+}
+
+# AgentWho config for shell END
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/flycarl/.sdkman"
+[[ -s "/Users/flycarl/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/flycarl/.sdkman/bin/sdkman-init.sh"

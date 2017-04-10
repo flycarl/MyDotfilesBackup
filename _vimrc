@@ -3,6 +3,7 @@
 "==========================================================
 set nocompatible              " Don't be compatible with vi
 let mapleader=","             " change the leader to be a comma vs slash
+let maplocalleader=","
 
 filetype off
 
@@ -18,14 +19,12 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'mileszs/ack.vim'
-Plugin 'reinh/vim-makegreen'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'mitechie/pyflakes-pathogen'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
@@ -38,24 +37,23 @@ let g:UltiSnipsEditSplit="vertical"
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-sexp'
 
-Plugin 'sheerun/vim-polyglot'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tomtom/tlib_vim'
+"Plugin 'sheerun/vim-polyglot'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tcomment_vim'
+"Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-markdown'
+"Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+"Plugin 'tpope/vim-rails'
+"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
+"Plugin 'tpope/vim-salve'
+"Plugin 'tpope/vim-projectionist'
+"Plugin 'tpope/vim-dispatch'
+"Plugin 'tpope/vim-fireplace'
 " vim-scripts repos
 Plugin 'L9'
-Plugin 'FuzzyFinder'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -150,11 +148,12 @@ nnoremap <leader><space> :nohlsearch<cr>
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-inoremap <C-l> <C-O>a
+inoremap jk <esc>
+inoremap <C-H> <C-O>a
+inoremap <C-A> <C-O>A
+" :help CTRL-@, Termial.app doesn't interpret <C-Space>
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-x><C-Space>
 
 "Fast reloading of the .vimrc
 map <silent> <leader>ss :source ~/.vimrc<cr>
@@ -239,8 +238,8 @@ set colorcolumn=79          " column line at 79, some colorscheme not good
 inoremap # #
 
 " close preview window automatically when we move around
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """" Reading/Writing
 set noautowrite             " Never write a file unless I request it.
