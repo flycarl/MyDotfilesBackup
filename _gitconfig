@@ -12,7 +12,17 @@
     co = checkout
     br = branch
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	plfs = !git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
 [color]
     ui = auto
     paper = less -R
 	status = true
+[http]
+	postBuffer = 157286400
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = ~/.stCommitMsg

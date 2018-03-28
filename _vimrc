@@ -23,9 +23,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'mitechie/pyflakes-pathogen'
+"Plugin 'mitechie/pyflakes-pathogen'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -34,8 +34,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "all lanugage support
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-sexp'
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'guns/vim-sexp'
 
 "Plugin 'sheerun/vim-polyglot'
 "Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -53,7 +53,7 @@ Plugin 'tpope/vim-surround'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'tpope/vim-fireplace'
 " vim-scripts repos
-Plugin 'L9'
+"Plugin 'L9'
 
 call vundle#end()
 filetype plugin indent on     " required!
