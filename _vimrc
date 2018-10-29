@@ -25,7 +25,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 "Plugin 'mitechie/pyflakes-pathogen'
 " Plugin 'Valloric/YouCompleteMe'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -43,6 +43,7 @@ let g:UltiSnipsEditSplit="vertical"
 "Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-ragtag'
 "Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 "Plugin 'tpope/vim-rails'
@@ -198,7 +199,6 @@ set wildignore+=*.egg-info/**
 
 set grepprg=ack         " replace the default grep program with ack
 
-
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 "autocmd FileType * setlocal colorcolumn=0
@@ -234,6 +234,9 @@ set mouse=a                 " allow mouse to drag split window line
 set cmdheight=2             " to avoid hit-enter prompt
 set colorcolumn=79          " column line at 79, some colorscheme not good
 
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[1 q"
 " don't outdent hashes
 inoremap # #
 
