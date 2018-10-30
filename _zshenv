@@ -1,0 +1,17 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$HOME/bin:$PATH
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export ALTOOL_PATH=/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/
+export PATH=${PATH}:$ALTOOL_PATH
