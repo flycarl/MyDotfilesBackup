@@ -140,3 +140,5 @@ function stop-agentwho() {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/flycarl/.sdkman"
 [[ -s "/Users/flycarl/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/flycarl/.sdkman/bin/sdkman-init.sh"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

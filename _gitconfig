@@ -1,5 +1,5 @@
 [user]
-	name = Jia Deng
+	name = Jia Deng 
 	email = flyucarl@gmail.com
 [github]
 	user = flycarl
@@ -7,29 +7,30 @@
 [help]
 	format = web
 [core]
-	excludesfile = /Users/flycarl/.cvsignore
+	excludesfile = /Users/jiadeng/.gitignore_global
 	editor = vim
 [alias]
     co = checkout
     br = branch
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	plfs = !git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+	gl = log --graph --all --relative-date --date=short --abbrev-commit --format=\"%x09 %h %Cgreen%cd%Creset [%Cblue%cn%Creset] %C(auto)%d%Creset %s\"
+    st = status
 [color]
     ui = auto
     paper = less -R
 	status = true
 [http]
 	postBuffer = 157286400
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [commit]
 	template = ~/.stCommitMsg
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

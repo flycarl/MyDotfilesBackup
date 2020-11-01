@@ -24,9 +24,11 @@ Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 "Plugin 'mitechie/pyflakes-pathogen'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
+Plugin 'junegunn/fzf' 
+
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
