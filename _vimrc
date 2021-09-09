@@ -19,7 +19,7 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -28,6 +28,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' 
 Plugin 'junegunn/fzf' 
+Plugin 'vim-airline/vim-airline'
+Plugin 'morhetz/gruvbox'
 
 " " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -278,7 +280,8 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme solarized
+    " colorscheme solarized
+    colorscheme gruvbox
     " Remove menu bar
     set guioptions-=m
 
@@ -288,7 +291,8 @@ else
     "colors torte
     "set background=light
     "colors peaksea
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme gruvbox
     "colors zenburn
 endif
 " ==========================================================
